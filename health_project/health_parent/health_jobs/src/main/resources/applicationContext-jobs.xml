@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd
+               http://www.springframework.org/schema/aop
+               http://www.springframework.org/schema/aop/spring-aop.xsd
+               http://www.springframework.org/schema/tx
+               http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--因为在ClearImgJob中开启了注解支持，使用了@Autowired // 注入，需要在spring的配置文件中开启注解支持-->
+    <!--方式一-->
+    <!--<context:annotation-config></context:annotation-config>-->
+    <!--方式二-->
+    <context:component-scan base-package="com.itheima.health"></context:component-scan>
+    <!--1：自定义Job-->
+    <bean id="jobDemo" class="com.itheima.health.job.ClearImgJob"></bean>
+    <!--2：任务细节类，任务调度工厂，加载自定义的Job及方法-->
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="jobDemo"></property>
+        <property name="targetMethod" value="clearImg"></property>
+    </bean>
+    <!--3：开启一个触发器（1、频率触发器；2：定时触发器），加载任务调度工厂-->
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail"></property>
+        <!--定时任务表达式；每10秒执行1次（0/10 * * * * ?）-->
+        <property name="cronExpression" value="30 33 * * * ?"></property>
+    </bean>
+    <!--4：开启使用调度工厂-->
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <array>
+                <ref bean="cronTrigger"></ref>
+            </array>
+        </property>
+    </bean>
+</beans>

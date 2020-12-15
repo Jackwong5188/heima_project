@@ -1,0 +1,13 @@
+com\itheima\health\pojo\CheckGroup.class
+com\itheima\health\pojo\CheckItem.class
+com\itheima\health\pojo\Permission.class
+com\itheima\health\pojo\Menu.class
+com\itheima\health\pojo\Order.class
+com\itheima\health\entity\QueryPageBean.class
+com\itheima\health\pojo\Member.class
+com\itheima\health\pojo\Setmeal.class
+com\itheima\health\pojo\User.class
+com\itheima\health\entity\Result.class
+com\itheima\health\pojo\OrderSetting.class
+com\itheima\health\entity\PageResult.class
+com\itheima\health\pojo\Role.class

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="itheima-nacos-client1" />
+        <module name="itheima-nacos-client2" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="itheima-nacos-client1" target="1.8" />
+      <module name="itheima-nacos-client2" target="1.8" />
+      <module name="itheima-nacos-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,9 @@
+com\itheima\health\dao\UserDao.class
+com\itheima\health\dao\CheckItemDao.class
+com\itheima\health\dao\OrderSettingDao.class
+com\itheima\health\dao\SetmealDao.class
+com\itheima\health\dao\MemberDao.class
+com\itheima\health\dao\PermissionDao.class
+com\itheima\health\dao\RoleDao.class
+com\itheima\health\dao\OrderDao.class
+com\itheima\health\dao\CheckGroupDao.class

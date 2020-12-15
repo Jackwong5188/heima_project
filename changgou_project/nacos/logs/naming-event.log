@@ -1,0 +1,48 @@
+2020-12-04 10:52:07,900 INFO DEFAULT_GROUP@@service-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.111.1:8060:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-12-04 10:52:07,911 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 13:46:26,988 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 13:46:27,737 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 13:46:29,024 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 13:46:31,003 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 13:46:36,394 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 13:46:37,574 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 13:46:43,620 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 13:46:52,075 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-04 14:04:47,974 INFO DEFAULT_GROUP@@service-provider2 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.111.1:8061:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-12-04 14:04:47,974 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider2, ips: 192.168.111.1:8061_true,
+
+2020-12-04 14:07:53,229 INFO {POS} {IP-DISABLED} valid: 192.168.111.1:8061@DEFAULT@DEFAULT_GROUP@@service-provider2, region: unknown, msg: client timeout after 15000, last beat: 1607062053310
+
+2020-12-04 14:07:57,874 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider2, ips: 192.168.111.1:8061_false,
+
+2020-12-04 14:08:02,864 INFO service: DEFAULT_GROUP@@service-provider2 {POS} {IP-ENABLED} valid: 192.168.111.1:8061@DEFAULT, region: unknown, msg: client beat ok
+
+2020-12-04 15:05:36,551 INFO {POS} {IP-DISABLED} valid: 192.168.111.1:8061@DEFAULT@DEFAULT_GROUP@@service-provider2, region: unknown, msg: client timeout after 15000, last beat: 1607065518601
+
+2020-12-04 15:05:42,101 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider2, ips: 192.168.111.1:8061_false,
+
+2020-12-04 15:05:47,087 INFO service: DEFAULT_GROUP@@service-provider2 {POS} {IP-ENABLED} valid: 192.168.111.1:8061@DEFAULT, region: unknown, msg: client beat ok
+
+2020-12-04 15:37:44,800 INFO {POS} {IP-DISABLED} valid: 192.168.111.1:8060@DEFAULT@DEFAULT_GROUP@@service-provider, region: unknown, msg: client timeout after 15000, last beat: 1607067445224
+
+2020-12-04 15:37:47,448 INFO {POS} {IP-DISABLED} valid: 192.168.111.1:8061@DEFAULT@DEFAULT_GROUP@@service-provider2, region: unknown, msg: client timeout after 15000, last beat: 1607067449222
+
+2020-12-04 15:38:00,120 INFO DEFAULT_GROUP@@service-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.111.1:8060:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2020-12-04 15:38:00,120 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 
+
+2020-12-04 15:38:02,452 INFO DEFAULT_GROUP@@service-provider2 {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.111.1:8061:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2020-12-04 15:38:02,452 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider2, ips: 
+

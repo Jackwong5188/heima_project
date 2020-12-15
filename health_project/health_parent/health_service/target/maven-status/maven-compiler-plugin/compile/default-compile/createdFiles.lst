@@ -1,0 +1,7 @@
+com\itheima\health\service\impl\UserServiceImpl.class
+com\itheima\health\service\impl\SetmealServiceImpl.class
+com\itheima\health\service\impl\MemberServiceImpl.class
+com\itheima\health\service\impl\CheckGroupServiceImpl.class
+com\itheima\health\service\impl\OrderSettingServiceImpl.class
+com\itheima\health\service\impl\CheckItemServiceImpl.class
+com\itheima\health\service\impl\OrderServiceImpl.class

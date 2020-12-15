@@ -1,0 +1,5 @@
+com\itheima\health\test\TestItext.class
+com\itheima\health\test\TestBCryptPassword.class
+com\itheima\health\test\TestMd5.class
+com\itheima\health\test\TestQiniu.class
+com\itheima\health\test\TestSMS.class

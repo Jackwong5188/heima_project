@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.health.dao.SetmealDao">
+    <!--设置套餐和检查组多对多关系-->
+    <insert id="setSetmealAndCheckGroup" parameterType="Map">
+        insert into t_setmeal_checkgroup
+        (setmeal_id,checkgroup_id)
+        values
+        (#{setmeal_id},#{checkgroup_id})
+    </insert>
+
+    <!--新增套餐-->
+    <insert id="add" parameterType="Setmeal">
+        <selectKey resultType="Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into t_setmeal
+        (code,name,sex,age,helpCode,price,remark,attention,img)
+        values
+        (#{code},#{name},#{sex},#{age},#{helpCode},#{price},#{remark},#{attention},#{img})
+    </insert>
+
+    <!--分页查询(检查组)-->
+    <select id="findPage" parameterType="String" resultType="Setmeal">
+        select * from t_setmeal
+        <!--动态sql的条件，必须使用value-->
+        <if test="value != null and value.length > 0">
+            where code = #{value} or name like concat('%',#{value},'%') or helpcode = #{value}
+        </if>
+    </select>
+
+    <resultMap id="findByIdMap" type="Setmeal">
+        <!--(根据套餐id)查询套餐基本信息-->
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="helpCode" property="helpCode"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="price" property="price"/>
+        <result column="remark" property="remark"/>
+        <result column="attention" property="attention"/>
+        <result column="img" property="img"/>
+        <!--(根据套餐id)查询套餐关联的多个检查组信息-->
+        <collection property="checkGroups" column="id"
+                    select="com.itheima.health.dao.CheckGroupDao.findCheckGroupListById"/>
+    </resultMap>
+    <!--根据套餐id查询套餐信息-->
+    <select id="findById" resultMap="findByIdMap" parameterType="Integer">
+        select * from t_setmeal where id = #{id}
+    </select>
+
+    <!--根据套餐id查询对应的所有检查组id-->
+    <select id="findCheckGroupIdsBySetmealId" parameterType="Integer" resultType="Integer">
+        select checkgroup_id from t_setmeal_checkgroup where setmeal_id = #{id}
+    </select>
+
+    <!--根据套餐id删除中间表数据（清理原有关联关系）-->
+    <delete id="deleteAssociation" parameterType="Integer">
+        delete from t_setmeal_checkgroup where setmeal_id = #{id}
+    </delete>
+
+    <!--编辑(检查组)-->
+    <update id="edit" parameterType="Setmeal">
+        update t_setmeal
+        <!--更新不为空字段，如果字段为空，仍然保持之前数据库的值（即不更新该字段）-->
+        <set>
+            <if test="name != null and name.length>0">
+                name = #{name},
+            </if>
+            <if test="code != null and code.length>0">
+                code = #{code},
+            </if>
+            <if test="helpCode != null and helpCode.length>0">
+                helpCode = #{helpCode},
+            </if>
+            <if test="sex != null and sex.length>0">
+                sex = #{sex},
+            </if>
+            <if test="age != null and age.length>0">
+                age = #{age},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="remark != null and remark.length>0">
+                remark = #{remark},
+            </if>
+            <if test="attention != null and attention.length>0">
+                attention = #{attention},
+            </if>
+            <if test="img != null and img.length>0">
+                img = #{img},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--使用套餐id，删除套餐和检查组中间表的数据-->
+    <delete id="findSetmealAndCheckGroupBySetmealId" parameterType="Integer">
+       delete from t_setmeal_checkgroup where setmeal_id = #{setmealId}
+    </delete>
+
+    <!--删除套餐-->
+    <delete id="delete" parameterType="Integer">
+       delete from t_setmeal where id = #{id}
+    </delete>
+
+    <!--查询所有-->
+    <select id="findAll" resultType="Setmeal">
+       select * from t_setmeal
+    </select>
+
+    <!--查找套餐数量-->
+    <select id="findSetmealCount" resultType="Map">
+        SELECT s.name, COUNT(*) as value
+        from t_order o ,t_setmeal s
+        WHERE s.id = o.setmeal_id
+        group by s.name
+    </select>
+</mapper>

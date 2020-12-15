@@ -1,0 +1,66 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+            - GET
+            - POST
+            - PUT
+            - DELETE
+      routes:
+      #商品微服务
+      - id: changgou_goods_route      # 唯一标识 规则的名字
+        #uri: http://localhost:18081  # 要转发的服务器的地址, 商品微服务
+        uri: lb://goods              # 要转发的服务器的地址 使用负载均衡的策略
+        predicates:
+        #- Host=cloud.itheima.com**  # 设置要转发的条件 只要是cloud.itheima.com开头的都符合条件
+        #- Path=/brand**             # 设置要转发的条件 以/brand开头的请求 就都转发给http:localhost:18081
+        #- Path=/**                  # 设置要转发的条件 任意请求 就都转发给http:localhost:18081
+        - Path=/api/album/**,/api/brand/**,/api/cache/**,/api/categoryBrand/**,/api/category/**,/api/para/**,/api/pref/**,/api/sku/**,/api/spec/**,/api/spu/**,/api/stockBack/**,/api/template/**      #所有以 /api/album或/api/brand ... /api/template开头的请求 都交给goods微服务处理
+        filters:
+        #- PrefixPath=/brand         # 过滤规则 当请求来的时候localhost:8001 --->localhost:18081/brand
+        - StripPrefix=1              # 过滤规则 当请求来的时候localhost:8001/api/brand---> localhost:18081/brand
+        - name: RequestRateLimiter  #请求速率限流 名字不能随便写 ，使用默认的factory
+          args:
+            key-resolver: "#{@ipKeyResolver}"    # 指定使用哪一个KeyResolver,与启动类中对应
+            redis-rate-limiter.replenishRate: 1  # 设置生成令牌的速率 每秒中产生一个令牌
+            redis-rate-limiter.burstCapacity: 1  # 指定允许在一秒钟内完成的最大请求数
+      #用户微服务
+      - id: changgou_user_route  # 唯一标识 规则的名字
+        uri: lb://user          # 要转发的服务器的地址, 用户微服务 ,使用负载均衡的策略
+        predicates:            # 设置要转发的条件 以 /api/user/或/api/address/或/api/areas/或/api/cities/或/api/provinces/ 开头的请求 就都转发给http:localhost:18089
+        - Path=/api/user/**,/api/address/**,/api/areas/**,/api/cities/**,/api/provinces/**
+        filters:
+        - StripPrefix=1
+      #订单微服务
+      - id: changgou_order_route  # 唯一标识 规则的名字
+        uri: lb://order           # 要转发的服务器的地址, 订单微服务 ,使用负载均衡的策略
+        predicates:              # 设置要转发的条件 以 /api/cart/或/api/categoryReport/或/api/orderConfig/或/api/order/或/api/orderItem/.../api/returnOrderItem/开头的请求 就都转发给http:localhost:18090
+        - Path=/api/cart/**,/api/categoryReport/**,/api/orderConfig/**,/api/order/**,/api/orderItem/**,/api/orderLog/**,/api/preferential/**,/api/returnCause/**,/api/returnOrder/**,/api/returnOrderItem/**
+        filters:
+        - StripPrefix=1
+
+  application:
+    name: gateway-web
+  #Redis配置
+  redis:
+    host: 192.168.211.132
+    port: 6379
+server:
+  port: 8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
+management:
+  endpoint:
+    gateway:
+      enabled: true
+    web:
+      exposure:
+        include: true

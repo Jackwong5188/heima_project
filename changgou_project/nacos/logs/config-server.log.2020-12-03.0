@@ -1,0 +1,36 @@
+2020-12-03 16:02:13,966 INFO notifyConnectTimeout:200
+
+2020-12-03 16:02:13,967 INFO notifySocketTimeout:8000
+
+2020-12-03 16:02:13,967 INFO isHealthCheck:true
+
+2020-12-03 16:02:13,967 INFO maxHealthCheckFailCount:12
+
+2020-12-03 16:02:13,971 INFO maxContent:10485760
+
+2020-12-03 16:02:22,414 INFO ServerListService address-server port:8848
+
+2020-12-03 16:02:22,415 INFO ADDRESS_SERVER_URL:http://jmenv.tbsite.net:8080/nacos/serverlist
+
+2020-12-03 16:02:22,416 WARN [serverlist] updated to [192.168.111.1]
+
+2020-12-03 16:02:22,591 WARN DumpService start
+
+2020-12-03 16:02:22,597 INFO start clear all config-info.
+
+2020-12-03 16:02:22,610 WARN clear all config-info failed.
+
+2020-12-03 16:02:22,611 WARN clear all config-info-tenant failed.
+
+2020-12-03 16:02:22,857 INFO start clear all config-info-beta.
+
+2020-12-03 16:02:22,858 WARN clear all config-info-beta failed.
+
+2020-12-03 16:02:22,859 WARN clear all config-info-beta-tenant failed.
+
+2020-12-03 16:02:22,876 INFO start clear all config-info-tag.
+
+2020-12-03 16:02:22,878 WARN clear all config-info-tag failed.
+
+2020-12-03 16:02:22,879 WARN clear all config-info-tag-tenant failed.
+

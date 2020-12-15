@@ -1,0 +1,28 @@
+2020-12-03 17:03:42,766 INFO DEFAULT_GROUP@@service-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.111.1:8060:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-12-03 17:03:42,782 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-03 17:06:38,898 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-03 17:06:45,766 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8060_true,
+
+2020-12-03 17:49:38,614 INFO {POS} {IP-DISABLED} valid: 192.168.111.1:8060@DEFAULT@DEFAULT_GROUP@@service-provider, region: unknown, msg: client timeout after 15000, last beat: 1606988962286
+
+2020-12-03 17:49:54,224 INFO DEFAULT_GROUP@@service-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.111.1:8060:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2020-12-03 17:49:54,224 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 
+
+2020-12-03 17:50:13,419 INFO DEFAULT_GROUP@@service-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.111.1:8061:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-12-03 17:50:13,419 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8061_true,
+
+2020-12-03 17:54:40,217 INFO {POS} {IP-DISABLED} valid: 192.168.111.1:8061@DEFAULT@DEFAULT_GROUP@@service-provider, region: unknown, msg: client timeout after 15000, last beat: 1606989264123
+
+2020-12-03 17:54:55,278 INFO DEFAULT_GROUP@@service-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.111.1:8061:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2020-12-03 17:54:55,278 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 
+
+2020-12-03 17:55:12,938 INFO DEFAULT_GROUP@@service-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.111.1:8061:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-12-03 17:55:12,938 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-provider, ips: 192.168.111.1:8061_true,
+
